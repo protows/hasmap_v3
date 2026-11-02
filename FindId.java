@@ -6,7 +6,6 @@ import java.util.HashMap;
 
 
 public class FindId {
-    //private static List<User> users = new ArrayList<>();
     private static Map<User, String> users = new HashMap<>();
 
     public static void main(String[] args) {
