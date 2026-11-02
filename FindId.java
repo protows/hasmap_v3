@@ -7,12 +7,13 @@ import java.util.HashMap;
 
 public class FindId {
     //private static List<User> users = new ArrayList<>();
-    private static Map<Long, String> users = new HashMap<>();
+    private static Map<Long, User> users = new HashMap<>();
 
     public static void main(String[] args) {
         // создадим 1 миллион пользователей
         for (long i = 1; i <= 1_000_000L; i++) {
-            users.put(i, "Имя " + i);
+            User user = new User(i, "Имя " + i);
+            users.put(i, user);
         }
 
         final long startTime = System.nanoTime();
