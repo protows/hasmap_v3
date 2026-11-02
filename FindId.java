@@ -6,13 +6,13 @@ import java.util.HashMap;
 
 
 public class FindId {
-    private static Map<User, String> users = new HashMap<>();
+    //private static List<User> users = new ArrayList<>();
+    private static Map<Long, String> users = new HashMap<>();
 
     public static void main(String[] args) {
         // создадим 1 миллион пользователей
         for (long i = 1; i <= 1_000_000L; i++) {
-            String name = "Имя " + i;
-            users.put(new User(i, name), name);
+            users.put(i, "Имя " + i);
         }
 
         final long startTime = System.nanoTime();
@@ -25,10 +25,8 @@ public class FindId {
     }
 
     private static User findUser(Long userId) {
-        for (User user : users.keySet()) {
-            if (user.id.equals(userId)) {
-                return user;
-            }
+        if(users.containsKey(userId)){
+            return users.get(userId);
         }
 
         return null;
